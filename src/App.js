@@ -40,7 +40,7 @@ class App extends Component {
     if (e.key === 'Enter') {
       const country = e.target.value;
       const API_URL_GOOGLE = `https://maps.googleapis.com/maps/api/geocode/json?address=${country}`
-      
+      e.target.value = '';
       request
       .get(API_URL_GOOGLE)
       .then(res => {
@@ -60,10 +60,9 @@ class App extends Component {
           this.setState({
             cities: arrayTemp
           })
-          console.log(this.state);
-    
         })
       }
+      
   }
   //=========================================================
   //Obtengo el nombre de ciudad y reviso la posición en el state
